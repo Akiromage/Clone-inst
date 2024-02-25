@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block head %}
+<script src="/static/js/post.js"></script>
+{% endblock %}
+
+{%  block body %}
+<p class="text-white" style="margin-left: 10px;">{{ name.text }}</p>
+
+<div style="width: 100%; display: flex; justify-content: center; align-items: center;">
+    <img src="{{ name.img.url }}" alt="post_image">
+</div>
+
+<br>
+<img src="/static/img/send-bl.png" alt="" style="width: 40px;" id="BTN_COMMENT" data-url="/Post{{ name.id }}/">
+<input id="INP_COMMENT" type="text" style="width: 50%; background-color: #101010; padding: 10px; color: white; border-radius: 20px; margin-left: 2%; outline: none; border: 0px;" placeholder="Write comment" class="my-3">
+
+{% if like == "dislike" %}
+    <img src="/static/img/like-1.png" alt="img" id="BTN_LIKE" data-url_l="/Post{{ name.id }}/" style="width: 5%">
+{% else %}
+    <img src="/static/img/like-2.png" alt="img" id="BTN_LIKE" data-url_l="/Post{{ name.id }}/" style="width: 5%">
+{% endif %}
+
+<p id="P_INT" class="text-white" style="margin-left: 10px;"><b>Likes: </b>{{ int }}</p>
+
+
+<div id="DIV_COMMENTS">
+    {% for el in comment_t %}
+    <div>
+        <p class="text-white" style="margin-left: 10px;"><b>{{ el.user_s.username }}</b> {{ el.text }} </p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

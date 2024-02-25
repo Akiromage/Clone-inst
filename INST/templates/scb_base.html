@@ -1,0 +1,11 @@
+<div class="my-2">
+    <h2 class="text-white"><b>Recomendation</b></h2>
+    {% for el in scb %}
+    <li style="list-style-type: none; margin-left: 10px;">
+        <img src="{{ el.avatar.url}}" alt="user_avatar" class="img-avatar" style="margin-top: 5px;">
+        <a href="/User{{el.id}}/Posts/" class="text-style">
+            {{ el.username}}
+        </a>
+    </li>
+    {% endfor %}
+</div>

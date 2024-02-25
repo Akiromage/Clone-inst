@@ -1,0 +1,144 @@
+[inert] > * {
+  opacity: 0.5;
+}
+
+.nav-bar {
+    position: fixed;
+    height: 100vh;
+    border-right: 2px solid #606060;
+}
+
+body {
+    background-color: black;
+}
+
+.img-logo {
+    width: 70%;
+}
+
+.nav-a {
+    display: inline-block;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px 50px;
+}
+
+.nav-a:hover {
+    background-color: #101010;
+    border-radius: 20px;
+}
+
+.nav-links {
+    position: fixed;
+    height: 100vh;
+    border-left: 2px solid #606060;
+    right: 0px;
+}
+
+.img-avatar {
+    border-radius: 50%;
+    height: 50px;
+}
+
+.profil-avatar {
+    border-radius: 50%;
+    width: 70%;
+}
+
+.text-style {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.text-style:hover {
+    color: #bdbdbd;
+}
+
+.icon-home {
+    width: 15%;
+}
+
+.post {
+   border-bottom:  2px solid #606060;
+   padding: 10px 0px;
+}
+
+.button-like {
+    background-color: black;
+    border-width: 0px;
+    border-style: none;
+}
+
+.button-like:hover {
+    background-color: #101010;
+    border-radius: 20px;
+}
+
+.button-comment {
+    background-color: black;
+    border-width: 0px;
+    border-style: none;
+}
+
+.button-comment:hover {
+    background-color: #101010;
+    border-radius: 20px;
+}
+
+.button-profils {
+    height: 25px;
+    border-right: 2px solid #606060;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
+
+.button-profils:hover {
+    background-color: #101010;
+}
+
+dialog {
+    height: 70%;
+    width: 50%;
+    position: fixed;
+    top: 15%;
+    background-color: #101010;
+    border-radius: 40px;
+}
+
+.psw {
+    width: 40%;
+    background-color: #101010;
+    padding: 10px;
+    color: white;
+    border-radius: 20px;
+    margin-top: 2%;
+    margin-left: 2%;
+    outline: none; border: 0px;
+
+}
+
+.div-set {
+    display: flex;
+    width: 100%;
+}
+
+.div-links {
+    width: 25%;
+    border-right: 2px solid #606060;
+    height: 100vh;
+}
+
+.button-links {
+    width: 100%;
+    border-bottom: 2px solid #606060;
+    padding: 5px;
+}
+
+.div-forms {
+    width: 75%;
+
+}

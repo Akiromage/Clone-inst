@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block head %}
+<script src="/static/js/index.js"></script>
+{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+    {% for el in my_post %}
+
+    <div class="row my-3 post">
+        <a href="/User{{ el.0.user_s.id }}/Posts" class="text-style">
+            <img src="{{ el.0.user_s.avatar.url }}" alt="avatar" class="img-avatar">
+            {{ el.0.user_s.username }}
+        </a>
+        <a href="/Post{{ el.0.id }}" style="width: 100%;" class="my-2">
+            <div style="width: 100%; display: flex; justify-content: center; align-items: center;">
+                    <img src="{{ el.0.img.url }}" alt="image" style="max-width: 90%; min-width: 45%">
+            </div>
+        </a>
+
+        {% if el.2 == 1 %}
+        <img src="/static/img/like-1.png" alt="like" style="width: 10%; " class="button-like" id="{{ el.0.id }}">
+        {% else %}
+        <img src="/static/img/like-2.png" alt="like-2" style="width: 10%" class="button-like" id="{{ el.0.id }}">
+        {% endif %}
+
+        <a href="/Post{{ el.0.id }}" style="width: 50px; padding: 0px;">
+            <img src="/static/img/comment.png" alt="comments" class="button-comment" style="width: 100%;">
+        </a>
+
+        {% if el.3 == 4 %}
+            <img src="/static/img/save.png" alt="save_icon" class="button-comment 1" style="width: 10%;" id="{{ el.0.id }}-save" data-id="{{ el.0.id }}">
+        {% else %}
+            <img src="/static/img/save-2.png" alt="save_icon" class="button-comment 1" style="width: 10%;" id="{{ el.0.id }}-save" data-id="{{ el.0.id }}">
+        {% endif %}
+
+        <p class="text-white my-1" id="{{ el.0.id}}-likes"><b>Likes: {{ el.1 }}</b> </p>
+
+        <p class="text-style" style="line-height: 1em; margin: 0px;">{{ el.0.user_s.username }}</p>
+        <p class="text-white" style="line-height: 1em; margin: 0px;">{{ el.0.text }}</p>
+    </div>
+
+    {% endfor %}
+</div>
+
+{% endblock %}

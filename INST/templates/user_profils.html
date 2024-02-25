@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block head %}
+<script src="/static/js/user_follow.js"></script>
+{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+    <div class="row my-3">
+        <div class="col-4" style="display: flex; justify-content: center; align-items: center;">
+            <img src="{{ user.avatar.url }}" alt="user_avatar" class="profil-avatar">
+        </div>
+        <div class="col-8">
+            <p class="text-white"><b>{{ user.username }}</b></p>
+            <p id="U_FOLLOWERS" class="text-white">
+                <b>Followers:</b> {{ followers }}
+                <b style="margin-left: 10px;">Follow:</b> {{ follow }}
+            </p>
+
+            <p class="text-white">{{ user.last_name }} {{ user.first_name }}</p>
+
+            {% if user.status %}
+                <p class="text-white">{{ user.status }}</p>
+            {% endif %}
+
+            {% if iden == 1 %}
+                {% if my_subscribe %}
+                <button id="BTN_USER" data-url="/User{{ user.id }}/Posts/" class="btn btn-outline-light btn-block">Unfollow</button>
+                {% else %}
+                <button id="BTN_USER" data-url="/User{{ user.id }}/Posts/" class="btn btn-primary btn-block">Follow</button>
+                {% endif %}
+            {% endif %}
+
+        </div>
+    </div>
+    <div class="row" style="border-top: 2px solid #606060;">
+        <div class="col-3" style="height: 25px; border-right: 2px solid #606060;"></div>
+        <div class="col-3 button-profils">
+            <a href="/User{{ user.id }}/Posts" style="text-decoration: none; color: white;">
+                Posts
+            </a>
+        </div>
+        <div class="col-3 button-profils">
+
+            {% if iden == 1 %}
+                <a href="/User{{ user.id }}/Saves" style="text-decoration: none; color: white;">
+                    Saves
+                </a>
+            {% else %}
+                 <a href="/Myprofil/Saves" style="text-decoration: none; color: white;">
+                    Saves
+                </a>
+            {% endif %}
+
+        </div>
+        <div class="col-3" style="height: 25px; border-right: 2px solid #606060;"></div>
+    </div>
+    <div class="row" style="border-top: 2px solid #606060;">
+        {% for el in posts %}
+        <div class="col-4" style="padding: 0px; height: 33%;">
+            <a href="/Post{{ el.id }}">
+                <img src="{{ el.img.url }}" alt="post">
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<br>
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block head %}
+<script src="/static/js/user_setting.js"></script>
+{% endblock %}
+
+{% block body %}
+<div class="div-set">
+    <div class="div-links">
+        <div class="button-links button-profils" style="height: auto;">
+            <a href="/Usersett" class="text-style">User setting</a>
+        </div>
+        <div class="button-links button-profils" style="height: auto;">
+            <a href="/Users" class="text-style">User security</a>
+        </div>
+        <div class="button-links button-profils" style="height: auto;">
+            <a href="/Modifikations" class="text-style">Modifikations settings</a>
+        </div>
+        <div class="button-links button-profils" style="height: auto;">
+            <a href="/Personal" class="text-style">Personal settings</a>
+        </div>
+    </div>
+
+    <div class="div-forms">
+        <h1 class="text-style my-3 mx-2" >{{ h1 }}</h1>
+        {% if iden == 1 %}
+            <div style="margin: 10px;">
+                <img src="{{ user.avatar.url }}" alt="UserAvatar" id="avatar" class="img-avatar">
+                <input type="file" style="display: none" id="INP_FILES">
+                <button id="BTN_FILES" class="btn btn-primary">File</button>
+            </div>
+        {% endif %}
+
+        {% if iden == 2 %}
+            <input type="password" id="password1" style="width: 40%; background-color: #101010; padding: 10px; color: white; border-radius: 20px; margin-left: 2%; outline: none; border: 0px;" placeholder="Write password" class="my-3">>
+            <p id="P_NUM" class="text-white"></p>
+        {% endif %}
+
+        {% csrf_token %}
+        {%for el in form%}
+        {{ el }}
+        <br>
+        {%endfor%}
+
+        {% if iden == 1 %}
+            <button id="BTN_C" class="btn btn-primary my-2 mx-2">Complete</button>
+        {% elif iden == 2 %}
+            <button id="BTN_CO" class="btn btn-primary my-2 mx-2">Complete</button>
+        {% elif iden == 3 %}
+            <button id="BTN_COM" class="btn btn-primary my-2 mx-2">Complete</button>
+            <p id="P_EMAIL" class="text-white"></p>
+        {% elif iden == 4 %}
+            <button id="BTN_COMP" class="btn btn-primary my-2 mx-2">Complete</button>
+            <p id="P_PERS" class="text-white"></p>
+        {% endif %}
+
+    </div>
+</div>
+{% endblock %}
